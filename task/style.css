@@ -1,0 +1,21 @@
+body {
+font-family: "Combo", system-ui;
+  font-weight: 400;
+  font-style:normal;
+}
+
+
+.navigojam {
+    list-style: type;
+
+}
+.referensu {
+font-family: "Combo", system-ui;
+  font-weight: 400;
+  font-style:normal;
+  box-sizing: border-box;
+  width: 33.3333%;
+  min-width: 200px;
+  display: inline-block;
+
+}

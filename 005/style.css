@@ -1,0 +1,51 @@
+body {
+    font-family: "Rajdhani", sans-serif;
+    margin: 0;
+    padding: 10px;
+}
+
+p.mano-tekstas-1,
+h6.mano-tekstas-1 {
+    color: skyblue;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+h6.mano-tekstas-1 {
+    text-transform: lowercase;
+}
+
+.mano-tekstas-2 {
+    color: orange;
+}
+
+.raudonas-tekstas {
+    color: crimson !important;
+    /* !!! Naudoti tik išskirtinais atvejais, pvz remontuojant web !!! */
+}
+
+section {
+    font-size: 0;
+
+}
+
+.box {
+    box-sizing: border-box;
+    border: 2px solid rgb(33, 143, 0);
+    width: calc(33.33333% - 30px);
+    height: 100px;
+    font-size: 10px;
+    display: inline-block;
+    min-width: 150px;
+    vertical-align: top ;
+    margin: 10px 15px
+}
+img {
+    height: 100px;
+
+}
+.box-p {
+display: inline-block;
+vertical-align: top;
+margin: 0;
+}
