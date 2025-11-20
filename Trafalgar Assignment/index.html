@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trafalgar - Virtual Healthcare</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #000;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1170px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            padding: 40px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 24px;
+            font-weight: 700;
+            color: #233348;
+        }
+
+        .logo-icon {
+            width: 41px;
+            height: 41px;
+            background: #458FF6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #1F1534;
+            opacity: 0.5;
+            font-weight: 400;
+            transition: opacity 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            opacity: 1;
+        }
+
+        .nav-menu a.active {
+            font-weight: 700;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 120px;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #000;
+            line-height: 1.4;
+            margin-bottom: 25px;
+        }
+
+        .hero-text p {
+            font-size: 21px;
+            color: #7D7987;
+            line-height: 1.5;
+            margin-bottom: 45px;
+        }
+
+        .btn-primary {
+            background: #458FF6;
+            color: white;
+            padding: 14px 42px;
+            border-radius: 55px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: #5BA4F6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(69, 143, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #458FF6;
+            padding: 14px 42px;
+            border: 1.4px solid #458FF6;
+            border-radius: 55px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #458FF6;
+            color: white;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(241,251,255,1) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 2px;
+            background: #000;
+        }
+
+        .section-header p {
+            color: #7D7987;
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 700px;
+            margin: 35px auto 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 50px 38px;
+            border-radius: 20px;
+            box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 10px 40px 60px rgba(229, 233, 246, 0.6);
+        }
+
+        .service-icon {
+            width: 92px;
+            height: 92px;
+            background: rgba(69, 143, 246, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .service-card p {
+            color: #7D7987;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .services-footer {
+            text-align: center;
+        }
+
+        /* Leading Healthcare Section */
+        .leading-healthcare {
+            padding: 120px 0;
+        }
+
+        .healthcare-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .healthcare-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .healthcare-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .healthcare-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 56px;
+            height: 2px;
+            background: #000;
+        }
+
+        .healthcare-text p {
+            color: #7D7987;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 45px 0 40px;
+        }
+
+        /* Download App Section */
+        .download-app {
+            padding: 80px 0;
+        }
+
+        .download-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 120px;
+            align-items: center;
+        }
+
+        .download-text h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .download-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 56px;
+            height: 2px;
+            background: #000;
+        }
+
+        .download-text p {
+            color: #7D7987;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 45px 0 40px;
+        }
+
+        .download-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 0;
+            background: linear-gradient(208.18deg, #67C3F3 9.05%, #5A98F2 76.74%);
+            border-radius: 200px 200px 0 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 24px;
+            padding: 60px 110px;
+            text-align: center;
+            max-width: 1120px;
+            margin: 0 auto 60px;
+            position: relative;
+        }
+
+        .testimonial-header {
+            margin-bottom: 50px;
+        }
+
+        .testimonial-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .testimonial-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 2px;
+            background: white;
+        }
+
+        .customer-info {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .customer-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .customer-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .customer-details {
+            text-align: left;
+        }
+
+        .customer-details h4 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .customer-details p {
+            color: #7D7987;
+            font-size: 18px;
+        }
+
+        .testimonial-text {
+            color: #7D7987;
+            font-size: 19px;
+            line-height: 1.7;
+            text-align: left;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .nav-arrow {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #458FF6;
+            transition: all 0.3s;
+        }
+
+        .nav-arrow:hover {
+            background: #458FF6;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .nav-dots {
+            display: flex;
+            gap: 12px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(69, 143, 246, 0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #5B9BF3;
+            width: 24px;
+            border-radius: 5px;
+        }
+
+        /* Articles Section */
+        .articles {
+            padding: 120px 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+            transition: all 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 10px 40px 60px rgba(229, 233, 246, 0.6);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .article-content {
+            padding: 30px;
+        }
+
+        .article-content h3 {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .article-content p {
+            color: #7D7987;
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .article-link {
+            color: #4089ED;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s;
+        }
+
+        .article-link:hover {
+            gap: 12px;
+        }
+
+        .articles-footer {
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(183.41deg, #67C3F3 -8.57%, #5A98F2 82.96%);
+            padding: 100px 0 40px;
+            color: white;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        .footer-brand p {
+            color: white;
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .footer-column h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.9;
+            transition: opacity 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content,
+            .healthcare-content,
+            .download-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .services-grid,
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            .testimonial-card {
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">T</div>
+                    <span>Trafalgar</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#services">Find a doctor</a></li>
+                    <li><a href="#download">Apps</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#articles">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Virtual healthcare for you</h1>
+                    <p>Trafalgar provides progressive, and affordable healthcare, accessible on mobile and online for everyone</p>
+                    <a href="#" class="btn-primary">Consult today</a>
+                </div>
+                <div class="hero-image">
+                    <svg width="693" height="598" viewBox="0 0 693 598" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <ellipse cx="346.5" cy="346.5" rx="346.5" ry="251.5" fill="#E5F4FB" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our services</h2>
+                <p>We provide to you the best choiches for you. Adjust it to your health needs and make sure your undergo treatment with our highly qualified doctors you can consult with us which type of service is suitable for your health</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <circle cx="30" cy="30" r="28" stroke="#458FF6" stroke-width="4"/>
+                            <path d="M30 20 L30 40 M20 30 L40 30" stroke="#458FF6" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Search doctor</h3>
+                    <p>Choose your doctor from thousands of specialist, general, and trusted hospitals</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <rect x="15" y="20" width="30" height="25" rx="3" stroke="#458FF6" stroke-width="3"/>
+                            <rect x="20" y="15" width="5" height="10" fill="#458FF6"/>
+                            <rect x="35" y="15" width="5" height="10" fill="#458FF6"/>
+                        </svg>
+                    </div>
+                    <h3>Online pharmacy</h3>
+                    <p>Buy your medicines with our mobile application with a simple delivery system</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <rect x="15" y="20" width="30" height="25" rx="3" stroke="#458FF6" stroke-width="3"/>
+                            <line x1="20" y1="28" x2="40" y2="28" stroke="#458FF6" stroke-width="2"/>
+                            <line x1="20" y1="33" x2="35" y2="33" stroke="#458FF6" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Consultation</h3>
+                    <p>Free consultation with our trusted doctors and get the best recomendations</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <rect x="15" y="18" width="30" height="28" rx="3" stroke="#458FF6" stroke-width="3"/>
+                            <path d="M20 25 L25 30 L40 20" stroke="#458FF6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Details info</h3>
+                    <p>Free consultation with our trusted doctors and get the best recomendations</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <path d="M30 15 L35 25 L45 26 L37 34 L39 44 L30 39 L21 44 L23 34 L15 26 L25 25 Z" stroke="#458FF6" stroke-width="3" fill="none"/>
+                        </svg>
+                    </div>
+                    <h3>Emergency care</h3>
+                    <p>You can get 24/7 urgent care for yourself or your children and your lovely family</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                            <rect x="15" y="20" width="30" height="25" rx="3" stroke="#458FF6" stroke-width="3"/>
+                            <line x1="20" y1="28" x2="40" y2="28" stroke="#458FF6" stroke-width="2"/>
+                            <line x1="20" y1="33" x2="40" y2="33" stroke="#458FF6" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Tracking</h3>
+                    <p>Track and save your medical history and health data</p>
+                </div>
+            </div>
+
+            <div class="services-footer">
+                <a href="#" class="btn-secondary">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leading Healthcare Section -->
+    <section class="leading-healthcare">
+        <div class="container">
+            <div class="healthcare-content">
+                <div class="healthcare-image">
+                    <svg width="650" height="477" viewBox="0 0 650 477" fill="none">
+                        <ellipse cx="325" cy="238.5" rx="325" ry="238.5" fill="#E5F4FB" opacity="0.5"/>
+                    </svg>
+                </div>
+                <div class="healthcare-text">
+                    <h2>Leading healthcare providers</h2>
+                    <p>Trafalgar provides progressive, and affordable healthcare, accessible on mobile and online for everyone. To us, it's not just work. We take pride in the solutions we deliver</p>
+                    <a href="#" class="btn-secondary">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download App Section -->
+    <section class="download-app" id="download">
+        <div class="container">
+            <div class="download-content">
+                <div class="download-text">
+                    <h2>Download our mobile apps</h2>
+                    <p>Our dedicated patient engagement app and web portal allow you to access information instantaneously (no tedious form, long calls, or administrative hassle) and securely</p>
+                    <a href="#" class="btn-secondary">Download ↓</a>
+                </div>
+                <div class="download-image">
+                    <svg width="665" height="434" viewBox="0 0 665 434" fill="none">
+                        <ellipse cx="332.5" cy="217" rx="332.5" ry="217" fill="#E5F4FB" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="testimonial-header">
+                <h2>What our customer are saying</h2>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="customer-info">
+                    <div class="customer-avatar">
+                        <svg width="90" height="90" viewBox="0 0 90 90">
+                            <circle cx="45" cy="45" r="45" fill="#E0E0E0"/>
+                            <circle cx="45" cy="35" r="15" fill="#757575"/>
+                            <ellipse cx="45" cy="75" rx="25" ry="20" fill="#757575"/>
+                        </svg>
+                    </div>
+                    <div class="customer-details">
+                        <h4>Edward Newgate</h4>
+                        <p>Founder Circle</p>
+                    </div>
+                </div>
+                <p class="testimonial-text">"Our dedicated patient engagement app and web portal allow you to access information instantaneously (no tedious form, long calls, or administrative hassle) and securely"</p>
+            </div>
+
+            <div class="testimonial-nav">
+                <button class="nav-arrow">←</button>
+                <div class="nav-dots">
+                    <span class="dot"></span>
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                <button class="nav-arrow">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles" id="articles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Check out our latest article</h2>
+            </div>
+
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-image">
+                        <svg width="100%" height="240" viewBox="0 0 350 240">
+                            <rect width="350" height="240" fill="#C4E1F6"/>
+                        </svg>
+                    </div>
+                    <div class="article-content">
+                        <h3>Disease detection, check up in the laboratory</h3>
+                        <p>In this case, the role of the health laboratory is very important to do a disease detection...</p>
+                        <a href="#" class="article-link">Read more →</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image">
+                        <svg width="100%" height="240" viewBox="0 0 350 240">
+                            <rect width="350" height="240" fill="#C4E1F6"/>
+                        </svg>
+                    </div>
+                    <div class="article-content">
+                        <h3>Herbal medicines that are safe for consumption</h3>
+                        <p>Herbal medicine is very widely used at this time because of its very good for your health...</p>
+                        <a href="#" class="article-link">Read more →</a>
+                    </div>
+                </div>
+
+                <div class="article-card">
+                    <div class="article-image">
+                        <svg width="100%" height="240" viewBox="0 0 350 240">
+                            <rect width="350" height="240" fill="#C4E1F6"/>
+                        </svg>
+                    </div>
+                    <div class="article-content">
+                        <h3>Natural care for healthy facial skin</h3>
+                        <p>A healthy lifestyle should start from now and also for your skin health. There are some...</p>
+                        <a href="#" class="article-link">Read more →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="articles-footer">
+                <a href="#" class="btn-secondary">View all</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">T</div>
+                        <span>Trafalgar</span>
+                    </div>
+                    <p>Trafalgar provides progressive, and affordable healthcare, accessible on mobile and online for everyone</p>
+                    <p style="margin-top: 30px;">©Trafalgar PTY LTD 2020. All rights reserved</p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Find a doctor</a></li>
+                        <li><a href="#">Apps</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Region</h4>
+                    <ul>
+                        <li><a href="#">Indonesia</a></li>
+                        <li><a href="#">Singapore</a></li>
+                        <li><a href="#">Hongkong</a></li>
+                        <li><a href="#">Canada</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">Help center</a></li>
+                        <li><a href="#">Contact support</a></li>
+                        <li><a href="#">Instructions</a></li>
+                        <li><a href="#">How it works</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

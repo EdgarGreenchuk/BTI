@@ -18,10 +18,10 @@ const N = 20;
 // 3. Kintamojo tipas
 
 let K1 = 25; // tipas Number
-let K2 = `Barsukas` // tipas String
-let K3 = `102` // tipas String
-let K4 = 54.78 // tipas Number
-let K5 =  -78.0002 // tipas 
+let K2 = `Barsukas`; // tipas String
+let K3 = `102`; // tipas String
+let K4 = 54.78; // tipas Number
+let K5 =  -78.0002; // tipas Number 
 
 let K20  = K1 + 30;
 
